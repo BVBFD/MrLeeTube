@@ -1,8 +1,10 @@
 import React from 'react';
 import styles from "./videoDetail.module.css";
 
-const VideoDetail = ({ video }) => {
-    return <span>{video.snippet.title}</span>;
+const VideoDetail = ({video, video: { snippet }}) => {
+    return (
+        <span>{snippet.title}</span>
+    )
 };
 
 export default VideoDetail;
