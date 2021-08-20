@@ -1,3 +1,8 @@
+.changeColor {
+  background-color: black;
+  color: white;
+}
+
 .content {
   display: flex;
   flex-direction: row;
@@ -10,4 +15,42 @@
 
 .ctnList {
   flex: 1 1 30%;
+}
+
+.upLight {
+  position: fixed;
+  bottom: 50px;
+  right: 50px;
+}
+
+.upBtn {
+  width: 60px;
+  height: 60px;
+  font-size: xx-large;
+  border-radius: 50%;
+  background-color: cornsilk;
+  color: red;
+  border: none;
+  cursor: pointer;
+}
+
+.lightBtn {
+  width: 60px;
+  height: 60px;
+  font-size: xx-large;
+  border-radius: 50%;
+  background-color: cornsilk;
+  color: blue;
+  border: none;
+  cursor: pointer;
+}
+
+.upBtn,
+.lightBtn {
+  transition: transform 300ms ease-in;
+}
+
+.upBtn:hover,
+.lightBtn:hover {
+  transform: scale(1.1);
 }

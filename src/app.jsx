@@ -44,11 +44,30 @@ function App() {
 
   useEffect(mostPopular, []);
 
+  const handleMoveTop = () => {
+    const top = document.querySelector('.headerForScrollMoveTop');
+    top.scrollIntoView();
+  };
+
+  const handleColorDark = () => {
+    const searchHeader = document.querySelector('.searchHeader_searchHeader__2Xh4S');
+    const sectionPart = document.querySelector('.app_content__2UxY1');
+    if(sectionPart.classList.contains(`${styles.changeColor}`)){
+      searchHeader.style.backgroundColor = `lightyellow`;
+      searchHeader.style.color = `black`;
+      sectionPart.classList.remove(`${styles.changeColor}`);
+    }else{
+      searchHeader.style.backgroundColor = `black`;
+      searchHeader.style.color = `white`;
+      sectionPart.classList.add(`${styles.changeColor}`);
+    }
+  };
+
   return (
     <div className={styles.screen}>
-      <header className={styles.header}>
+      <div className={styles.header} className='headerForScrollMoveTop'>
         <SearchHeader onSearch={search} onMostPopular={mostPopular}/>
-      </header>
+      </div>
       <section className={styles.content}>
       {selectedVideo && <div className={styles.ctnDetail}>
           <VideoDetail video={selectedVideo}/>
@@ -57,6 +76,10 @@ function App() {
           <VideoLIst width={selectedVideo ? '100%' : '49.5%'} videos={videos} onSelectVideo={selectVideo}/>
         </div>
       </section>
+      <div className={styles.upLight}>
+        <button onClick={handleMoveTop} className={styles.upBtn}><i class="fas fa-arrow-circle-up"></i></button>
+        <button onClick={handleColorDark} className={styles.lightBtn}><i class="fas fa-sun"></i></button>
+      </div>
     </div>
   );
 }
