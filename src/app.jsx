@@ -17,6 +17,7 @@ function App() {
   };
 
   const search = (query) => {
+    setSelectedVideo(null);
     const requestOptions = {
       method: 'GET',
       redirect: 'follow'
@@ -28,7 +29,8 @@ function App() {
       .catch(error => console.log('error', error));
   };
 
-  useEffect(() => {
+  const mostPopular = () => {
+    setSelectedVideo(null);
     const requestOptions = {
       method: 'GET',
       redirect: 'follow'
@@ -38,14 +40,24 @@ function App() {
       .then(response => response.json())
       .then(result => setVideos(result.items))
       .catch(error => console.log('error', error));
-  }, []);
+  };
+
+  useEffect(mostPopular, []);
 
   return (
-    <>
-      <SearchHeader onSearch={search}/>
-      {selectedVideo && <VideoDetail video={selectedVideo}/>}
-      <VideoLIst videos={videos} onSelectVideo={selectVideo}/>
-    </>
+    <div className={styles.screen}>
+      <header className={styles.header}>
+        <SearchHeader onSearch={search} onMostPopular={mostPopular}/>
+      </header>
+      <section className={styles.content}>
+      {selectedVideo && <div className={styles.ctnDetail}>
+          <VideoDetail video={selectedVideo}/>
+        </div>}
+        <div className={styles.ctnList}>
+          <VideoLIst width={selectedVideo ? '100%' : '49.5%'} videos={videos} onSelectVideo={selectVideo}/>
+        </div>
+      </section>
+    </div>
   );
 }
 

@@ -1,7 +1,7 @@
 import React, { useRef } from 'react';
 import styles from "./searchHeader.module.css";
 
-const SearchHeader = ({onSearch}) => {
+const SearchHeader = ({onSearch, onMostPopular}) => {
     const inputRef = useRef();
 
     const handleSearch = () => {
@@ -27,9 +27,13 @@ const SearchHeader = ({onSearch}) => {
         handleSearch();
     };
 
+    const toMainPage = () => {
+        onMostPopular();
+    }
+
     return (
     <header className={styles.searchHeader}>
-        <div className={styles.logoTitle}>
+        <div className={styles.logoTitle} onClick={toMainPage}>
             <img src="/images/logo.png" alt="logo" />
             <span>MR.LeeTube</span>
         </div>

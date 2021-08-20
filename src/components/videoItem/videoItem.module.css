@@ -9,13 +9,38 @@
   transition: transform 300ms ease-in;
 }
 
+.changedWidth {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  align-items: center;
+  border: 1px solid lightgray;
+  margin: 0.2rem;
+  box-shadow: 3px 3px 5px 0px rgba(191, 191, 191, 0.53);
+  transition: transform 300ms ease-in;
+}
+
+.changedWidth .title_video {
+  font-size: small;
+  font-weight: 600;
+}
+
 .videoItem:hover {
+  transform: scale(1.01);
+}
+
+.changedWidth:hover {
   transform: scale(1.01);
 }
 
 .videoItem_title {
   display: flex;
+  width: 40%;
   flex-direction: column;
+}
+
+.img {
+  width: 60%;
 }
 
 .title_video {

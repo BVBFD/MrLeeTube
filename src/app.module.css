@@ -1,1 +1,13 @@
+.content {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+}
 
+.ctnDetail {
+  flex: 1 1 70%;
+}
+
+.ctnList {
+  flex: 1 1 30%;
+}
