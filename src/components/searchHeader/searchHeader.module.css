@@ -12,7 +12,6 @@
 }
 
 .logoTitle {
-  width: 20%;
   display: flex;
   align-items: center;
   margin-left: 2rem;
@@ -27,7 +26,7 @@
 }
 
 .searchForm {
-  width: 80%;
+  width: 100%;
   height: 4rem;
   line-height: 4rem;
   margin-top: 1rem;
@@ -52,4 +51,14 @@
   color: white;
   border-style: none;
   cursor: pointer;
+}
+
+@media screen and (max-width: 48rem) {
+  .logoTitle span {
+    display: none;
+  }
+
+  .logoTitle img {
+    margin-right: 1rem;
+  }
 }

@@ -2,8 +2,6 @@ import React from 'react';
 import styles from './videoItem.module.css';
 
 const VideoItem = ({width, video, video: { snippet }, onSelectVideo}) => {
-    console.log(width);
-
     const changeWidth  = width === `100%` ? styles.changedWidth : styles.videoItem;
 
     return (
